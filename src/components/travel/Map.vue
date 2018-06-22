@@ -1,17 +1,12 @@
 <template>
   <div class="index">
-     {{city_list}}
-     {{city_list.length}}
-    <index-map></index-map>
+
   </div>
 </template>
 
 <script>
-import IndexMap from './IndexMap'
-
 export default {
-  name: 'index',
-  components: {IndexMap},
+  name: 'map',
   data: function () {
     return {
       city_list: []
