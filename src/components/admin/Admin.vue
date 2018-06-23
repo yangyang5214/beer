@@ -1,12 +1,12 @@
 <template>
   <div>
-    index
+    admin
   </div>
 </template>
 
 <script>
   export default {
-    name: 'index',
+    name: 'admin',
     data: function () {
       return {}
     },

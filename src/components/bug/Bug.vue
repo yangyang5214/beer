@@ -1,12 +1,12 @@
 <template>
   <div>
-    index
+    bug
   </div>
 </template>
 
 <script>
   export default {
-    name: 'index',
+    name: 'bug',
     data: function () {
       return {}
     },
@@ -17,4 +17,5 @@
 </script>
 
 <style>
+
 </style>

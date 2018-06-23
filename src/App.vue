@@ -22,5 +22,6 @@ export default {
   .f_l { float: left }
   .f_r { float: right }
   article { width: 1000px; margin:80px auto 0; overflow: hidden }
-  .app { width: 1000px; margin: auto }
+  .container { width: 1000px; margin: auto }
+  nav{ width:900px; margin:auto}
 </style>

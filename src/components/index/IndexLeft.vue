@@ -86,18 +86,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  .header-navigation {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background: rgba(255,255,255,.9);
 
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 1px 1px rgba(0,0,0,.04);
-
-    z-index: 9999;
-  }
 </style>
