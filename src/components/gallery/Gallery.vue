@@ -1,12 +1,15 @@
 <template>
   <div class="gallery">
-    <div class="list-item wow bounceInLeft">
-      <div class="item-img" v-for="url in img_list">
-        <img :src="url" alt="">
+    <div class="list-item">
+      <div class="item-img" v-for="img in img_list">
+        <img :src="img.url" @click="goDetail(img.id)">
+        <div>{{img.type}}</div>
+        <span>{{img.count}}</span>
       </div>
     </div>
   </div>
 </template>
+
 
 <script>
   export default {
@@ -14,52 +17,97 @@
     data: function () {
       return {
         img_list: [
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
+          {
+            'id': '1',
+            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
+            'type': '泰山',
+            'count': '10'
+          },
+          {
+            'id': '1',
+            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
+            'type': '泰山',
+            'count': '10'
+          },
+          {
+            'id': '1',
+            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
+            'type': '泰山',
+            'count': '999'
+          },
+          {
+            'id': '1',
+            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
+            'type': '泰山',
+            'count': '100'
+          },
+          {
+            'id': '1',
+            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
+            'type': '泰山',
+            'count': '10'
+          },
+          {
+            'id': '1',
+            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
+            'type': '泰山',
+            'count': '10'
+          },
+          {
+            'id': '1',
+            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
+            'type': '泰山',
+            'count': '10'
+          },
         ]
       }
     },
     mounted: function () {
     },
-    methods: {}
+    methods: {
+      goDetail(id){
+        console.error(id)
+      }
+    }
   }
 </script>
 
 <style scoped>
   .gallery {
-    -moz-column-count: 3;
-    -webkit-column-count: 3;
-    column-count: 3;
-    -moz-column-gap: 30px;
-    -webkit-column-gap: 30px;
-    column-gap: 30px;
-
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-top: 100px;
+    margin-left: 300px;
+    margin-right: 300px;
   }
 
   .list-item {
-    margin-bottom: 30px;
   }
 
   .item-img {
+    background: rgba(255, 255, 255, .9);
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 40px;
   }
 
   .item-img img {
-    width: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 260px;
+  }
+
+  .item-img div {
+    margin-left: 20px;
+    font-size: 20px;
+    width: 230px;
+    display: inline-block;
+  }
+
+  .item-img span {
+    font-size: 20px;
+    margin-right: 20px;
   }
 </style>

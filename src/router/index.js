@@ -4,6 +4,7 @@ import Home from '../components/Home'
 import Index from '../components/index/Index'
 import Bug from '../components/bug/Bug'
 import Blog from '../components/blog/Blog'
+import GalleryDetail from '../components/gallery/GalleryDetail'
 import Gallery from '../components/gallery/Gallery'
 import Me from '../components/me/Me'
 
@@ -11,6 +12,10 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/beer',
+      component: GalleryDetail,
+    },
     {
       path: '/',
       name: '首页',
