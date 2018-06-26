@@ -41,7 +41,6 @@
 <style scoped="scoped">
   .top {
     width: 100%;
-    height: auto;
     position: fixed;
     top: 0;
   }
