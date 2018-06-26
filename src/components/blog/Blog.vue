@@ -1,5 +1,5 @@
 <template>
-  <div v-html="content">
+  <div v-html="content" class="blog">
   </div>
 </template>
 
@@ -164,4 +164,7 @@
 </script>
 
 <style scoped>
+  .blog {
+
+  }
 </style>

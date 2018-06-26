@@ -19,9 +19,6 @@
           <li>
             <router-link id='me' to="/me">me</router-link>
           </li>
-          <li>
-            <router-link id='admin' to="/admin">admin</router-link>
-          </li>
         </ul>
       </nav>
     </div>
@@ -45,6 +42,8 @@
   .top {
     width: 100%;
     height: auto;
+    position: fixed;
+    top: 0;
   }
 
   .header-navigation {
@@ -57,7 +56,6 @@
     text-align: center;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
-
     z-index: 9999;
   }
 

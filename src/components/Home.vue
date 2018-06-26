@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import Top from './common/Top'
+  import Top from './Top'
   import Left from './index/IndexLeft'
 
   export default {
