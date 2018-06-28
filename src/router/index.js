@@ -4,9 +4,11 @@ import Home from '../components/Home'
 import Index from '../components/index/Index'
 import Bug from '../components/bug/Bug'
 import Blog from '../components/blog/Blog'
+import BlogHome from '../components/blog/BlogHome'
 import GalleryDetail from '../components/gallery/GalleryDetail'
 import Gallery from '../components/gallery/Gallery'
 import Me from '../components/me/Me'
+
 
 Vue.use(Router)
 
@@ -33,7 +35,7 @@ export default new Router({
         }, {
           path: '/blog',
           name: '个人博客',
-          component: Blog,
+          component: BlogHome,
         },
         {
           path: '/bug',
