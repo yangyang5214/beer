@@ -5,19 +5,19 @@
         <div class="logo"><a href="/"><b>Beer Home</b></a></div>
         <ul id="starlist">
           <li>
-            <router-link id='index' to="/index">index</router-link>
+            <router-link id='index' to="/index">首页</router-link>
           </li>
           <li>
-            <router-link id='gallery' to="/gallery">gallery</router-link>
+            <router-link id='gallery' to="/gallery">相册</router-link>
           </li>
           <li>
-            <router-link id='blog' to="/blog">blog</router-link>
+            <router-link id='blog' to="/blog">博客</router-link>
           </li>
           <li>
             <router-link id='bug' to="/bug">bug</router-link>
           </li>
           <li>
-            <router-link id='me' to="/me">me</router-link>
+            <router-link id='me' to="/me">关于我</router-link>
           </li>
         </ul>
       </nav>
