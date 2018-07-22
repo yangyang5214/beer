@@ -2,7 +2,7 @@
   <div class="galleryDetail">
     <div class="list-item wow bounceInLeft">
       <div class="item-img" v-for="url in img_list">
-        <img :src="url" alt="">
+        <img :src="url.url" alt="">
       </div>
     </div>
   </div>
@@ -13,35 +13,28 @@
     name: 'galleryDetail',
     data: function () {
       return {
-        img_list: [
-          'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979248565/2c14d647-ec7e-44fa-b109-0a458c3ba528.png',
-          'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979248565/2c14d647-ec7e-44fa-b109-0a458c3ba528.png',
-          'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979248565/2c14d647-ec7e-44fa-b109-0a458c3ba528.png',
-          'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979248565/2c14d647-ec7e-44fa-b109-0a458c3ba528.png',
-          'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979248565/2c14d647-ec7e-44fa-b109-0a458c3ba528.png',
-          'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979248565/2c14d647-ec7e-44fa-b109-0a458c3ba528.png',
-          'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979248565/2c14d647-ec7e-44fa-b109-0a458c3ba528.png',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1530017077427&di=f5577191241c484108d1e4e08f95af17&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4610b912c8fcc3cec52444bf9e45d688d53f2051.jpg',
-        ]
+        gallery_type: '',
+        img_list: []
       }
     },
-    mounted: function () {
+    created() {
+      let url_path = this.$route.path
+      this.gallery_type = decodeURI(url_path.split('/')[3])
     },
-    methods: {}
+    mounted: function () {
+      this.getImageList()
+    },
+    methods: {
+      getImageList() {
+        let params = {
+          type: this.gallery_type
+        }
+        this.$axios.get(this.$api.getImageList, {params}).then(response => {
+          let data = response.data
+          this.img_list = data.data
+        })
+      },
+    }
   }
 </script>
 

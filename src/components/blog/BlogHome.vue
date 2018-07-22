@@ -15,35 +15,27 @@
 
       <div class="group_type">
         <h2>文章分类</h2>
-        <ul>
-          <li><a href="/blog">学无止境（33）</a></li>
-          <li><a href="/blog">日记（19）</a></li>
-          <li><a href="/blog">慢生活（520）</a></li>
-          <li><a href="/blog">美文欣赏（40）</a></li>
+        <ul v-on:click="selectType(item.date)" v-for="item in group_type">
+          <li>{{item.type}} ({{item.count}})</li>
         </ul>
       </div>
 
       <div class="group_date">
         <h2>日期归档</h2>
-        <ul>
-          <li><a href="/blog">2018-06（330）</a></li>
-          <li><a href="/blog">2018-05（19）</a></li>
-          <li><a href="/blog">2018-04（20）</a></li>
-          <li><a href="/blog">2018-03（40）</a></li>
-          <li><a href="/blog">2018-02（40）</a></li>
-          <li><a href="/blog">2018-01（40）</a></li>
+        <ul v-on:click="selectDate(item.date)" v-for="item in group_date">
+          <li>{{item.date}} ({{item.count}})</li>
         </ul>
       </div>
     </div>
 
     <div class="r_box">
       <!--<blog></blog>-->
-      <li v-for="blog in blog_list">
+      <li v-on:click="goDetail(blog.id)" v-for="blog in blog_list">
         <i>
-          <a href="/"><img :src="blog.image"></a>
+          <a><img :src="blog.image"></a>
         </i>
-        <h3><a href="/">{{blog.title}}</a></h3>
-        <p>{{blog.content}}</p>
+        <h3><a href="/">{{blog.name}}</a></h3>
+        <p>{{blog.remark}}</p>
       </li>
 
       <div class="block">
@@ -51,7 +43,9 @@
           background
           layout="prev, pager, next"
           :page-size="page_size"
-          :total="total">
+          :total=total
+          :current-page=current_page
+          @current-change="handleCurrentChange">
         </el-pagination>
       </div>
     </div>
@@ -67,39 +61,64 @@
     data: function () {
       return {
         page_size: 5,
-        total: 100,
-        blog_list: [
-          {
-            'image': 'https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=49fdc57ee050352aa56c2d5a322a9097/a2cc7cd98d1001e94a0fdec6b10e7bec55e797cc.jpg',
-            'title': '你是什么人便会遇上什么人',
-            'content': '有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。',
-          },
-          {
-            'image': 'https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=49fdc57ee050352aa56c2d5a322a9097/a2cc7cd98d1001e94a0fdec6b10e7bec55e797cc.jpg',
-            'title': '你是什么人便会遇上什么人',
-            'content': '有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。',
-          },
-          {
-            'image': 'https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=49fdc57ee050352aa56c2d5a322a9097/a2cc7cd98d1001e94a0fdec6b10e7bec55e797cc.jpg',
-            'title': '你是什么人便会遇上什么人',
-            'content': '有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。',
-          },
-          {
-            'image': 'https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=49fdc57ee050352aa56c2d5a322a9097/a2cc7cd98d1001e94a0fdec6b10e7bec55e797cc.jpg',
-            'title': '你是什么人便会遇上什么人',
-            'content': '有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。',
-          },
-          {
-            'image': 'https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=49fdc57ee050352aa56c2d5a322a9097/a2cc7cd98d1001e94a0fdec6b10e7bec55e797cc.jpg',
-            'title': '你是什么人便会遇上什么人',
-            'content': '有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。',
-          },
-        ]
+        total: '',
+        blog_list: [],
+        current_page: 1,
+        group_type: [],
+        group_date: [],
+        type: '',
+        date: '',
       }
     },
     mounted: function () {
+      this.getBlogList()
+      this.getStatisticByDate()
+      this.getStatisticByType()
     },
-    methods: {}
+    methods: {
+      selectType(type) {
+        this.type = type
+        this.getBlogList()
+      },
+      selectDate(date) {
+        this.date = date
+        this.getBlogList()
+      },
+      handleCurrentChange(val) {
+        this.current_page = val
+        this.getBlogList()
+      },
+      getStatisticByDate() {
+        this.$axios.get(this.$api.getStatisticByDate).then(response => {
+          let data = response.data
+          this.group_date = data.data
+        })
+      },
+      getStatisticByType() {
+        this.$axios.get(this.$api.getStatisticByType).then(response => {
+          let data = response.data
+          this.group_type = data.data
+          console.error(this.group_date)
+        })
+      },
+      getBlogList() {
+        let params = {
+          type: this.type,
+          date: this.date,
+          pageNum: this.current_page,
+          pageSize: this.page_size
+        }
+        this.$axios.get(this.$api.getBlogList, {params}).then(response => {
+          let data = response.data
+          this.blog_list = data.list
+          this.total = data.total
+        })
+      },
+      goDetail(id) {
+        let routeData = this.$router.resolve({path: '/blog/detail'});
+        window.open(routeData.href + '/' + id, '_blank');
+      }
+    }
   }
 </script>
 
@@ -230,8 +249,7 @@
     color: #19585d;
   }
 
-  .block{
-
+  .block {
     text-align: center;
   }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="gallery">
     <div class="list-item">
-      <div class="item-img" v-for="img in img_list">
-        <img :src="img.url" @click="goDetail(img.id)">
+      <div class="item-img" v-for="img in img_cover_list">
+        <img :src="img.url" @click="goDetail(img.type)">
         <div>{{img.type}}</div>
         <span>{{img.count}}</span>
       </div>
@@ -16,58 +16,23 @@
     name: 'gallery',
     data: function () {
       return {
-        img_list: [
-          {
-            'id': '1',
-            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
-            'type': '泰山',
-            'count': '10'
-          },
-          {
-            'id': '1',
-            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
-            'type': '泰山',
-            'count': '10'
-          },
-          {
-            'id': '1',
-            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
-            'type': '泰山',
-            'count': '999'
-          },
-          {
-            'id': '1',
-            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
-            'type': '泰山',
-            'count': '100'
-          },
-          {
-            'id': '1',
-            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
-            'type': '泰山',
-            'count': '10'
-          },
-          {
-            'id': '1',
-            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
-            'type': '泰山',
-            'count': '10'
-          },
-          {
-            'id': '1',
-            'url': 'https://yangyang-1256523277.cos.ap-shanghai.myqcloud.com/test/1529979247956/647435d9-be49-4f85-99ec-4756a52b207a.png',
-            'type': '泰山',
-            'count': '10'
-          },
-        ]
+        img_cover_list: []
       }
     },
     mounted: function () {
+      this.getImageCoverList()
     },
     methods: {
-      goDetail(id){
-        console.error(id)
-      }
+      goDetail(type) {
+        let routeData = this.$router.resolve({path: '/gallery/detail'});
+        window.open(routeData.href + '/' + type, '_blank');
+      },
+      getImageCoverList() {
+        this.$axios.get(this.$api.getImageCoverList).then(response => {
+          let data = response.data
+          this.img_cover_list = data.data
+        })
+      },
     }
   }
 </script>

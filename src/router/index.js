@@ -19,6 +19,14 @@ export default new Router({
       component: GalleryDetail,
     },
     {
+      path: '/blog/detail/*',
+      component: Blog,
+    },
+    {
+      path: '/gallery/detail/*',
+      component: GalleryDetail,
+    },
+    {
       path: '/',
       name: '首页',
       component: Home,
@@ -32,7 +40,8 @@ export default new Router({
           path: '/gallery',
           name: '相册',
           component: Gallery,
-        }, {
+        },
+        {
           path: '/blog',
           name: '个人博客',
           component: BlogHome,

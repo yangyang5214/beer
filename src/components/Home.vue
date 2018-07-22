@@ -2,19 +2,16 @@
   <div class="home">
     <top></top>
     <router-view></router-view>
-    <!--<left></left>-->
   </div>
 </template>
 
 <script>
   import Top from './Top'
-  import Left from './index/IndexLeft'
 
   export default {
     name: 'home',
     components: {
       Top,
-      Left
     },
     data: function () {
       return {}
