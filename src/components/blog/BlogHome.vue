@@ -15,7 +15,7 @@
 
       <div class="group_type">
         <h2>文章分类</h2>
-        <ul v-on:click="selectType(item.date)" v-for="item in group_type">
+        <ul v-on:click="selectType(item.type)" v-for="item in group_type">
           <li>{{item.type}} ({{item.count}})</li>
         </ul>
       </div>
@@ -112,6 +112,8 @@
           let data = response.data
           this.blog_list = data.list
           this.total = data.total
+          this.type = ""
+          this.date = ""
         })
       },
       goDetail(id) {
@@ -181,7 +183,6 @@
   }
 
   li {
-    margin-bottom: 10px;
     margin-left: 10px
   }
 

@@ -1,8 +1,26 @@
 <template>
   <div class="me">
-    <div>
+    <div class="introduction">
       张龙
+
+
     </div>
+
+    <div class="introduction">
+    </div>
+
+    <div class="educational_experience">
+      黑龙江八一农垦大学
+    </div>
+
+    <div class="work_experience">
+      工作经历
+    </div>
+
+    <div class="work_experience">
+      工作经历
+    </div>
+
   </div>
 </template>
 
@@ -24,12 +42,5 @@
     margin-top: 100px;
     margin-left: 400px;
     margin-right: 400px;
-  }
-
-  .head-image {
-    margin-top: 100px;
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
   }
 </style>
