@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/Home'
 import Index from '../components/index/Index'
-import Bug from '../components/bug/Bug'
+import MessageBoard from '../components/MessageBoard/MessageBoard'
 import Blog from '../components/blog/Blog'
 import BlogHome from '../components/blog/BlogHome'
 import GalleryDetail from '../components/gallery/GalleryDetail'
@@ -47,9 +47,9 @@ export default new Router({
           component: BlogHome,
         },
         {
-          path: '/bug',
-          name: 'bug记录',
-          component: Bug,
+          path: '/message-board',
+          name: '留言板',
+          component: MessageBoard
         },
         {
           path: '/me',

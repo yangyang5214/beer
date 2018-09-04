@@ -2,8 +2,6 @@
   <div class="me">
     <div class="introduction">
       张龙
-
-
     </div>
 
     <div class="introduction">
@@ -11,10 +9,6 @@
 
     <div class="educational_experience">
       黑龙江八一农垦大学
-    </div>
-
-    <div class="work_experience">
-      工作经历
     </div>
 
     <div class="work_experience">
