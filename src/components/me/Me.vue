@@ -4,9 +4,6 @@
       张龙
     </div>
 
-    <div class="introduction">
-    </div>
-
     <div class="educational_experience">
       黑龙江八一农垦大学
     </div>

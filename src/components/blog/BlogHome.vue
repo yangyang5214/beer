@@ -1,17 +1,10 @@
 <template>
   <div class="blogHome">
     <div class="l_box">
-      <div class="search">
-        <form action="" method="post" name="searchform" id="searchform">
-          <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);"
-                 onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}"
-                 onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
-          <input name="show" value="title" type="hidden">
-          <input name="tempid" value="1" type="hidden">
-          <input name="tbname" value="news" type="hidden">
-          <input name="Submit" class="input_submit" value="搜索" type="submit">
-        </form>
-      </div>
+
+      <el-input placeholder="请输入内容" v-model="keyword" class="input-with-select">
+        <el-button slot="append" icon="el-icon-search" v-on:click="getBlogList()"></el-button>
+      </el-input>
 
       <div class="group_type">
         <h2>文章分类</h2>
@@ -68,6 +61,7 @@
         group_date: [],
         type: '',
         date: '',
+        keyword: '',
       }
     },
     mounted: function () {
@@ -103,6 +97,7 @@
       },
       getBlogList() {
         let params = {
+          keyword: this.keyword,
           type: this.type,
           date: this.date,
           pageNum: this.current_page,
@@ -130,25 +125,6 @@
     margin-top: 100px;
     margin-left: 400px;
     margin-right: 400px;
-  }
-
-  .search input.input_submit {
-    border: 0;
-    background: 0;
-    color: #fff;
-    outline: none;
-    position: absolute;
-    top: 10px;
-    right: 8%
-  }
-
-  .search input.input_text {
-    border: 0;
-    line-height: 36px;
-    height: 36px;
-    width: 72%;
-    padding-left: 10px;
-    outline: none
   }
 
   .l_box {
