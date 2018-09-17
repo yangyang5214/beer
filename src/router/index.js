@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/Home'
 import Index from '../components/index/Index'
-import MessageBoard from '../components/MessageBoard/MessageBoard'
+import Bug from '../components/bug/Bug'
+import BlogDetail from '../components/blog/BlogDetail'
 import Blog from '../components/blog/Blog'
-import BlogHome from '../components/blog/BlogHome'
 import GalleryDetail from '../components/gallery/GalleryDetail'
 import Gallery from '../components/gallery/Gallery'
 import Me from '../components/me/Me'
@@ -20,7 +20,7 @@ export default new Router({
     },
     {
       path: '/blog/detail/*',
-      component: Blog,
+      component: BlogDetail,
     },
     {
       path: '/gallery/detail/*',
@@ -44,12 +44,12 @@ export default new Router({
         {
           path: '/blog',
           name: '个人博客',
-          component: BlogHome,
+          component: Blog,
         },
         {
-          path: '/message-board',
-          name: '留言板',
-          component: MessageBoard
+          path: '/bug',
+          name: 'bug',
+          component: Bug,
         },
         {
           path: '/me',

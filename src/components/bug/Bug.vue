@@ -1,6 +1,6 @@
 <template>
-  <div class="message-board">
-    留言板
+  <div class="bug">
+    bug
   </div>
 </template>
 
@@ -18,7 +18,7 @@
 
 <style>
 
-  .message-board {
+  .bug {
     background: rgba(255, 255, 255, .9);
     margin-top: 100px;
     margin-left: 400px;
