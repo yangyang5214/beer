@@ -14,7 +14,7 @@
             <router-link id='blog' to="/blog">博客</router-link>
           </li>
           <li>
-            <router-link id='/bug' to="/message-board">Bug</router-link>
+            <router-link id='/bug' to="/bug">Bug</router-link>
           </li>
           <li>
             <router-link id='me' to="/me">关于我</router-link>

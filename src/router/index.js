@@ -15,10 +15,6 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/beer',
-      component: GalleryDetail,
-    },
-    {
       path: '/blog/detail/*',
       component: BlogDetail,
     },
