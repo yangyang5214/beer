@@ -34,6 +34,11 @@ export default {
    * 根据类型获取图片
    */
   getImageList: 'blog/image/list',
+
+  /**
+   * 获取每日一句
+   */
+  getDaily: 'mine/daily',
 }
 
 /**

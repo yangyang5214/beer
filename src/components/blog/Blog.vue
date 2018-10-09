@@ -123,8 +123,8 @@
   .blogHome {
     background: rgba(255, 255, 255, .9);
     margin-top: 100px;
-    margin-left: 400px;
-    margin-right: 400px;
+    margin-left: 300px;
+    margin-right: 300px;
   }
 
   .l_box {
